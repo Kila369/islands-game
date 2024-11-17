@@ -1,0 +1,37 @@
+Bugs Encountered
+
+  Bug 1: Bad indexing of average island heights
+    Description: Description: The algorithm occasionally registered water as a correct guess because water cells had an islandId of -1. Accessing board_list with an index of -1 would retrieve the last element, which, if it had the highest average height, would be considered the correct guess.
+    How It Was Noticed: This issue was identified while testing that system response correct to Selection of the edges of islands.
+    Fix: Added a condition to check if water is clicked, ensuring it does not register as an event.
+  
+  Bug 2: Incorrect Setting of Island Heights
+    Description: The algorithm rendered an inverted island map.
+    How It Was Noticed: The issue was discovered by comparing the visual representation of the grid with the cell heights list on a cell-by-cell basis.
+    Fix: Inverted the row and col properties when accessing the list.
+
+2. Testing Approaches for Other Contestants' Projects
+
+  Functional Testing
+    Correct Island Detection: Verify that the correct island is identified by the algorithm in various scenarios, including edge cases involving island boundaries.
+    Guess Handling: Ensure the game responds appropriately to both correct and incorrect guesses.
+
+  UI/UX Testing
+    Visual Feedback: Test that the heights of cells are visually distinguishable, making it easy to differentiate between high and low lands.
+    Selection Accuracy: Verify that clicking on a cell reliably selects the correct island.
+
+  Performance Testing
+    High-Stress Test: Evaluate the system's performance with maps significantly larger than 30x30.
+
+3. Improvements and Features with a Magic Wand
+  Enhanced Visuals: Introduce elevation-based color gradients for land cells to better visualize height differences.
+  Accessibility Features: Add options like zooming, high-contrast mode, or height value overlays.
+  Dynamic Levels: Create multi-level gameplay with guaranteed differences and increasing difficulty.
+  Leaderboard: Implement a global leaderboard to track player accuracy and high scores.
+  Real-Life Examples: Load parts of real-world maps for a unique experience.
+
+4. Potential Impact of Various Factors
+  Map Size: Larger maps (e.g., 100x100) could introduce performance bottlenecks during initial rendering.
+  Dynamic Map Size: The solution currently works for a fixed number of cells but could be easily adjusted to handle variable map sizes.
+  Number of Lives: If randomization is introduced, there could be cases where, for example, only one island exists but three lives are given.
+  Real-Time Interaction: Adding animations or real-time feedback might impact performance but would significantly enhance user experience.
