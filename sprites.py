@@ -48,7 +48,7 @@ class Board:
   def __init__(self, list):
     self.board_surface = pygame.Surface((WIDTH, HEIGHT))
     self.board_list = [
-      [Tile(col, row, list[col][row]) for row in range(len(list))] for col in range(len(list[0]))
+      [Tile(col, row, list[row][col]) for row in range(len(list))] for col in range(len(list[0]))
     ]
     self.visited = []
     self.islandHeights = []
